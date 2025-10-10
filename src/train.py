@@ -4,8 +4,8 @@ from stable_baselines3 import PPO, SAC, DDPG, TD3
 from stable_baselines3.common.vec_env import DummyVecEnv
 from stable_baselines3.common.monitor import Monitor
 from stable_baselines3.common.env_checker import check_env
-from environments.robot_env import RobotEnv
-from utils.callbacks import SaveOnBestTrainingRewardCallback, ProgressBarCallback
+from environment import RobotEnv
+from callbacks import SaveOnBestTrainingRewardCallback, ProgressBarCallback
 import os
 from datetime import datetime
 
