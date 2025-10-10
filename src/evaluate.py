@@ -4,6 +4,7 @@ from stable_baselines3 import PPO, SAC, DDPG, TD3
 from environment import RobotEnv
 import os
 
+
 def evaluate_model(model_path: str, scene_path: str, num_episodes: int = 10):
     """Evaluate a trained model"""
 
@@ -42,7 +43,7 @@ def evaluate_model(model_path: str, scene_path: str, num_episodes: int = 10):
         total_rewards.append(episode_reward)
 
         # Check if episode was successful
-        if info.get('episode', {}).get('success', False):
+        if info.get("episode", {}).get("success", False):
             success_rate += 1
 
         print(f"Episode {episode + 1}: Reward = {episode_reward:.2f}")
@@ -55,6 +56,7 @@ def evaluate_model(model_path: str, scene_path: str, num_episodes: int = 10):
     print(f"Max Reward: {np.max(total_rewards):.2f}")
 
     env.close()
+
 
 if __name__ == "__main__":
     # Example usage

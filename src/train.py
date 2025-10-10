@@ -9,11 +9,13 @@ from callbacks import SaveOnBestTrainingRewardCallback, ProgressBarCallback
 import os
 from datetime import datetime
 
+
 def create_env(scene_path: str, headless: bool = False):
     """Create and wrap the environment"""
     env = RobotEnv(scene_path=scene_path, headless=headless)
     env = Monitor(env)  # Add monitoring for rewards
     return env
+
 
 def train():
     # Configuration
@@ -107,7 +109,7 @@ def train():
     # Callbacks
     callbacks = [
         SaveOnBestTrainingRewardCallback(check_freq=SAVE_FREQ, save_path=model_dir),
-        ProgressBarCallback(total_timesteps=TOTAL_TIMESTEPS)
+        ProgressBarCallback(total_timesteps=TOTAL_TIMESTEPS),
     ]
 
     print(f"Starting {ALGORITHM} training for {TOTAL_TIMESTEPS} timesteps...")
@@ -119,7 +121,7 @@ def train():
         total_timesteps=TOTAL_TIMESTEPS,
         callback=callbacks,
         tb_log_name=f"{ALGORITHM}_run",
-        log_interval=1
+        log_interval=1,
     )
 
     # Save final model
@@ -129,6 +131,7 @@ def train():
     print(f"Final model saved to: {os.path.join(model_dir, 'final_model')}")
 
     env.close()
+
 
 if __name__ == "__main__":
     train()

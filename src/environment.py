@@ -7,6 +7,7 @@ from pyrep.objects.shape import Shape
 from pyrep.objects.vision_sensor import VisionSensor
 from typing import Tuple, List
 
+
 class RobotEnv(gym.Env):
     """Custom robot environment for CoppeliaSim with Stable Baselines3"""
 
@@ -20,9 +21,7 @@ class RobotEnv(gym.Env):
 
         # Define action and observation space
         # Continuous action space for joint control
-        self.action_space = spaces.Box(
-            low=-1.0, high=1.0, shape=(4,), dtype=np.float32
-        )
+        self.action_space = spaces.Box(low=-1.0, high=1.0, shape=(4,), dtype=np.float32)
 
         # Observation space: joint positions, velocities, target position, distance
         self.observation_space = spaces.Box(
@@ -31,10 +30,10 @@ class RobotEnv(gym.Env):
 
         # Get robot components (adjust names based on your scene)
         try:
-            self.joints = [Joint(f'joint_{i}') for i in range(4)]
-            self.robot_base = Shape('robot_base')
-            self.target = Shape('target')
-            self.vision_sensor = VisionSensor('vision_sensor')
+            self.joints = [Joint(f"joint_{i}") for i in range(4)]
+            self.robot_base = Shape("robot_base")
+            self.target = Shape("target")
+            self.vision_sensor = VisionSensor("vision_sensor")
         except:
             print("Warning: Could not find all objects. Using dummy objects.")
             self.joints = []
@@ -84,10 +83,10 @@ class RobotEnv(gym.Env):
 
         # Additional info
         info = {
-            'episode': {
-                'r': self.current_episode_reward,
-                'l': self.episode_step,
-                'success': self._is_success()
+            "episode": {
+                "r": self.current_episode_reward,
+                "l": self.episode_step,
+                "success": self._is_success(),
             }
         }
 
@@ -108,17 +107,17 @@ class RobotEnv(gym.Env):
             distance = np.linalg.norm(np.array(robot_pos) - np.array(target_pos))
 
             obs = np.array(
-                joint_positions +
-                joint_velocities +
-                robot_pos +
-                target_pos +
-                [distance],
-                dtype=np.float32
+                joint_positions
+                + joint_velocities
+                + robot_pos
+                + target_pos
+                + [distance],
+                dtype=np.float32,
             )
 
             # Ensure correct shape
             if len(obs) < 11:
-                obs = np.pad(obs, (0, 11 - len(obs)), mode='constant')
+                obs = np.pad(obs, (0, 11 - len(obs)), mode="constant")
 
             return obs[:11]  # Ensure exactly 11 dimensions
 
@@ -164,17 +163,18 @@ class RobotEnv(gym.Env):
         """Randomize target position"""
         try:
             import random
+
             new_pos = [
                 random.uniform(-0.5, 0.5),
                 random.uniform(-0.5, 0.5),
-                0.05  # Keep on ground
+                0.05,  # Keep on ground
             ]
             if self.target:
                 self.target.set_position(new_pos)
         except:
             pass
 
-    def render(self, mode='human'):
+    def render(self, mode="human"):
         """Render the environment"""
         # Rendering is handled by CoppeliaSim
         pass

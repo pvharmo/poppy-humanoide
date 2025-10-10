@@ -11,12 +11,12 @@ TRAINING_CONFIG = {
     "gradient_steps": 1,
     "policy_kwargs": {
         "net_arch": [64, 64]  # Network architecture
-    }
+    },
 }
 
 # Environment configuration
 ENV_CONFIG = {
     "max_episode_steps": 500,
     "reward_scale": 1.0,
-    "success_threshold": 0.1  # Distance threshold for success
+    "success_threshold": 0.1,  # Distance threshold for success
 }

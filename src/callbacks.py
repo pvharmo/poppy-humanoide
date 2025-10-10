@@ -2,6 +2,7 @@ from stable_baselines3.common.callbacks import BaseCallback
 import numpy as np
 import os
 
+
 class SaveOnBestTrainingRewardCallback(BaseCallback):
     """
     Callback for saving a model (the check is done every ``check_freq`` steps)
@@ -22,13 +23,15 @@ class SaveOnBestTrainingRewardCallback(BaseCallback):
     def _on_step(self) -> bool:
         if self.n_calls % self.check_freq == 0:
             # Retrieve training reward
-            rewards = [ep_info['r'] for ep_info in self.model.ep_info_buffer]
+            rewards = [ep_info["r"] for ep_info in self.model.ep_info_buffer]
             if len(rewards) > 0:
                 mean_reward = np.mean(rewards)
                 if self.verbose > 0:
                     print(f"Num timesteps: {self.num_timesteps}")
-                    print(f"Best mean reward: {self.best_mean_reward:.2f} - "
-                          f"Last mean reward: {mean_reward:.2f}")
+                    print(
+                        f"Best mean reward: {self.best_mean_reward:.2f} - "
+                        f"Last mean reward: {mean_reward:.2f}"
+                    )
 
                 # New best model, save it
                 if mean_reward > self.best_mean_reward:
@@ -38,6 +41,7 @@ class SaveOnBestTrainingRewardCallback(BaseCallback):
                     self.model.save(os.path.join(self.save_path, "best_model"))
 
         return True
+
 
 class ProgressBarCallback(BaseCallback):
     """A simple callback to display a progress bar during training"""
@@ -51,6 +55,7 @@ class ProgressBarCallback(BaseCallback):
         # Initialize progress bar
         try:
             from tqdm import tqdm
+
             self.progress_bar = tqdm(total=self.total_timesteps)
         except ImportError:
             print("tqdm not installed, progress bar disabled")
