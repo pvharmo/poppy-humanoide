@@ -1,0 +1,14 @@
+[project]
+name = "poppy-humanoide"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "gym>=0.26.2",
+    "numpy>=2.3.3",
+    "pyrep>=3.2.0",
+    "stable-baselines3>=2.7.0",
+    "tensorboard>=2.20.0",
+    "torch>=2.8.0",
+]
