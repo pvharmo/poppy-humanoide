@@ -1,8 +1,6 @@
-import gym
 import numpy as np
 from stable_baselines3 import PPO, SAC, DDPG, TD3
 from environment import RobotEnv
-import os
 
 
 def evaluate_model(model_path: str, scene_path: str, num_episodes: int = 10):

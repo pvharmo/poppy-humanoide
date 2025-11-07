@@ -1,5 +1,5 @@
-import gym
-from gym import spaces
+import gymnasium
+from gymnasium import spaces
 import numpy as np
 from pyrep import PyRep
 from pyrep.objects.joint import Joint
@@ -8,7 +8,7 @@ from pyrep.objects.vision_sensor import VisionSensor
 from typing import Tuple, List
 
 
-class RobotEnv(gym.Env):
+class RobotEnv(gymnasium.Env):
     """Custom robot environment for CoppeliaSim with Stable Baselines3"""
 
     def __init__(self, scene_path: str, headless: bool = False):

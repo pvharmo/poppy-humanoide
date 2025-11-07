@@ -1,5 +1,3 @@
-import gym
-import numpy as np
 from stable_baselines3 import PPO, SAC, DDPG, TD3
 from stable_baselines3.common.vec_env import DummyVecEnv
 from stable_baselines3.common.monitor import Monitor
@@ -19,7 +17,7 @@ def create_env(scene_path: str, headless: bool = False):
 
 def train():
     # Configuration
-    SCENE_PATH = "path/to/your/scene.ttt"  # Update this path
+    SCENE_PATH = "/var/home/jonathan/Documents/ulaval/poppy-humanoide/scene/poppy_humanoid.ttt"  # Update this path
     ALGORITHM = "PPO"  # Choose from: PPO, SAC, DDPG, TD3
     TOTAL_TIMESTEPS = 100000
     SAVE_FREQ = 10000
