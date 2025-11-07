@@ -4,7 +4,7 @@ import argparse
 
 
 def simThreadFunc():
-    from lib import (
+    from coppelia.lib import (
         appDir,
         simDeinitialize,
         simGetExitRequest,
@@ -21,7 +21,7 @@ def simThreadFunc():
 
 
 if __name__ == "__main__":
-    import cmdopt as cmdopt
+    import coppelia.cmdopt as cmdopt
 
     parser = argparse.ArgumentParser(description="CoppeliaSim client.", add_help=False)
     cmdopt.add(parser)
@@ -35,7 +35,7 @@ if __name__ == "__main__":
     else:
         import threading
 
-        from lib import simRunGui
+        from coppelia.lib import simRunGui
 
         t = threading.Thread(target=simThreadFunc)
         t.start()

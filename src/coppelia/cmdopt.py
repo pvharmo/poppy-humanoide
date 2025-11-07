@@ -100,7 +100,7 @@ def read_args(args):
 
     from ctypes import c_char_p
 
-    from lib import (
+    from coppelia.lib import (
         sim_gui_headless,
         sim_stringparam_additional_addonscript1,
         sim_stringparam_additional_addonscript2,
