@@ -1,43 +1,14 @@
-import argparse
+import time
 
-# refer to the manual (en/coppeliaSimLibrary.htm) for customization examples
+from poppy_humanoid import PoppyHumanoid
+from pypot.vrep.io import VrepIO
+from pypot.vrep.remoteApiBindings.vrep import simxSynchronous, simxSynchronousTrigger
 
+vrep = VrepIO("127.0.0.1", 19997)
 
-def simThreadFunc():
-    from coppelia.lib import (
-        appDir,
-        simDeinitialize,
-        simGetExitRequest,
-        simInitialize,
-        simLoop,
-    )
+poppy = PoppyHumanoid(simulator="vrep", shared_vrep_io=vrep)
+simxSynchronous(vrep.client_id, True)
 
-    simInitialize(appDir().encode("utf-8"), 0)
-
-    while not simGetExitRequest():
-        simLoop(None, 0)
-
-    simDeinitialize()
-
-
-if __name__ == "__main__":
-    import coppelia.cmdopt as cmdopt
-
-    parser = argparse.ArgumentParser(description="CoppeliaSim client.", add_help=False)
-    cmdopt.add(parser)
-    args = parser.parse_args()
-
-    # set builtins.coppeliasim_library according to command line options:
-    options = cmdopt.read_args(args)
-
-    if args.true_headless:
-        simThreadFunc()
-    else:
-        import threading
-
-        from coppelia.lib import simRunGui
-
-        t = threading.Thread(target=simThreadFunc)
-        t.start()
-        simRunGui(options)
-        t.join()
+while True:
+    time.sleep(1)
+    simxSynchronousTrigger(vrep.client_id)
