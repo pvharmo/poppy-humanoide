@@ -38,18 +38,6 @@ class RobotEnv(gymnasium.Env):
         self.head_position = self.poppy.get_object_position("head_visual")
         self.head_target = [10, 0, self.head_position[2]]
 
-        # Define action and observation space APRÈS avoir défini self.joints
-        n_joints = len(self.joints)
-        self.action_space = spaces.Box(
-            low=-1.0, high=1.0, shape=(n_joints,), dtype=np.float32
-        )
-
-        # Observation: positions + vitesses + position robot + position target + distance
-        obs_size = n_joints * 2 + 3 + 3 + 1
-        self.observation_space = spaces.Box(
-            low=-np.inf, high=np.inf, shape=(obs_size,), dtype=np.float32
-        )
-
         self.episode_step = 0
         self.max_episode_steps = 500
         self.current_episode_reward = 0.0
@@ -57,7 +45,7 @@ class RobotEnv(gymnasium.Env):
 
         print("Environment initialized")
 
-    def reset(self, seed) -> tuple[np.ndarray, dict]:
+    def reset(self, seed=None) -> tuple[np.ndarray, dict]:
         """Reset the environment to initial state"""
         print("Resetting environment")
         # self.poppy.reset_simulation()
@@ -85,11 +73,7 @@ class RobotEnv(gymnasium.Env):
         # Get observation, reward, done
         obs = self._get_observation()
         reward = self._compute_reward()
-        done = (
-            self.episode_step >= self.max_episode_steps
-            or self._is_success()
-            or self._has_fallen()
-        )
+        done = self._is_success() or self._has_fallen()
 
         self.current_episode_reward += reward
 
@@ -104,6 +88,12 @@ class RobotEnv(gymnasium.Env):
         }
 
         return obs, reward, done, False, info
+
+    def _has_fallen(self):
+        head_position = np.array(self.poppy.get_object_position("head_visual"))
+        torso_position = np.array(self.poppy.get_object_position("spine_visual"))
+
+        return head_position[2] - torso_position[2] < 0.05
 
     def _get_observation(self) -> np.ndarray:
         """Get current observation"""
