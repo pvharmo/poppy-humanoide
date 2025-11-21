@@ -1,0 +1,305 @@
+<mujoco model="Poppy_Humanoid">
+  <default>
+    <default class="robot">
+      <default class="motor">
+    <!-- <position inheritrange="1" kp="75" kv="5"/> -->
+        <joint />
+        <!-- <joint stiffness="100" damping="10" /> -->
+        <motor gear="15" />
+      </default>
+      <default class="visual">
+        <geom material="visualgeom" contype="0" conaffinity="0" group="2" />
+      </default>
+      <default class="collision">
+        <geom material="collision_material" group="1" />
+        <!-- <geom material="collision_material" solmix="1" condim="3" contype="0" conaffinity="1" priority="1" group="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.05 2" friction="1 0.005 0.0001" /> -->
+      </default>
+    </default>
+  </default>
+
+  <compiler angle="radian" autolimits="true" />
+
+  <asset>
+    <material name="default" rgba="0.9 0.9 0.9 1.0" />
+    <material name="default_material" rgba="0.7 0.7 0.7 1" />
+    <material name="collision_material" rgba="1.0 0.28 0.1 0.9" />
+    <mesh name="pelvis_respondable.STL" file="meshes/pelvis_respondable.STL" />
+    <mesh name="pelvis_visual.STL" file="meshes/pelvis_visual.STL" />
+    <mesh name="r_hip_respondable.STL" file="meshes/r_hip_respondable.STL" />
+    <mesh name="r_hip_visual.STL" file="meshes/r_hip_visual.STL" />
+    <mesh name="r_hip_motor_respondable.STL" file="meshes/r_hip_motor_respondable.STL" />
+    <mesh name="r_hip_motor_visual.STL" file="meshes/r_hip_motor_visual.STL" />
+    <mesh name="r_thigh_respondable.STL" file="meshes/r_thigh_respondable.STL" />
+    <mesh name="r_thigh_visual.STL" file="meshes/r_thigh_visual.STL" />
+    <mesh name="r_shin_respondable.STL" file="meshes/r_shin_respondable.STL" />
+    <mesh name="r_shin_visual.STL" file="meshes/r_shin_visual.STL" />
+    <mesh name="r_foot_respondable.STL" file="meshes/r_foot_respondable.STL" />
+    <mesh name="r_foot_visual.STL" file="meshes/r_foot_visual.STL" />
+    <mesh name="l_hip_respondable.STL" file="meshes/l_hip_respondable.STL" />
+    <mesh name="l_hip_visual.STL" file="meshes/l_hip_visual.STL" />
+    <mesh name="l_hip_motor_respondable.STL" file="meshes/l_hip_motor_respondable.STL" />
+    <mesh name="l_hip_motor_visual.STL" file="meshes/l_hip_motor_visual.STL" />
+    <mesh name="l_thigh_respondable.STL" file="meshes/l_thigh_respondable.STL" />
+    <mesh name="l_thigh_visual.STL" file="meshes/l_thigh_visual.STL" />
+    <mesh name="l_shin_respondable.STL" file="meshes/l_shin_respondable.STL" />
+    <mesh name="l_shin_visual.STL" file="meshes/l_shin_visual.STL" />
+    <mesh name="l_foot_respondable.STL" file="meshes/l_foot_respondable.STL" />
+    <mesh name="l_foot_visual.STL" file="meshes/l_foot_visual.STL" />
+    <mesh name="abs_motors_respondable.STL" file="meshes/abs_motors_respondable.STL" />
+    <mesh name="abs_motors_visual.STL" file="meshes/abs_motors_visual.STL" />
+    <mesh name="abdomen_respondable.STL" file="meshes/abdomen_respondable.STL" />
+    <mesh name="abdomen_visual.STL" file="meshes/abdomen_visual.STL" />
+    <mesh name="spine_respondable.STL" file="meshes/spine_respondable.STL" />
+    <mesh name="spine_visual.STL" file="meshes/spine_visual.STL" />
+    <mesh name="bust_motors_respondable.STL" file="meshes/bust_motors_respondable.STL" />
+    <mesh name="bust_motors_visual.STL" file="meshes/bust_motors_visual.STL" />
+    <mesh name="chest_respondable.STL" file="meshes/chest_respondable.STL" />
+    <mesh name="chest_visual.STL" file="meshes/chest_visual.STL" />
+    <mesh name="neck_respondable.STL" file="meshes/neck_respondable.STL" />
+    <mesh name="neck_visual.STL" file="meshes/neck_visual.STL" />
+    <mesh name="head_respondable.STL" file="meshes/head_respondable.STL" />
+    <mesh name="head_visual.STL" file="meshes/head_visual.STL" />
+    <mesh name="l_shoulder_respondable.STL" file="meshes/l_shoulder_respondable.STL" />
+    <mesh name="l_shoulder_visual.STL" file="meshes/l_shoulder_visual.STL" />
+    <mesh name="l_shoulder_motor_respondable.STL" file="meshes/l_shoulder_motor_respondable.STL" />
+    <mesh name="l_shoulder_motor_visual.STL" file="meshes/l_shoulder_motor_visual.STL" />
+    <mesh name="l_upper_arm_respondable.STL" file="meshes/l_upper_arm_respondable.STL" />
+    <mesh name="l_upper_arm_visual.STL" file="meshes/l_upper_arm_visual.STL" />
+    <mesh name="l_forearm_respondable.STL" file="meshes/l_forearm_respondable.STL" />
+    <mesh name="l_forearm_visual.STL" file="meshes/l_forearm_visual.STL" />
+    <mesh name="r_shoulder_respondable.STL" file="meshes/r_shoulder_respondable.STL" />
+    <mesh name="r_shoulder_visual.STL" file="meshes/r_shoulder_visual.STL" />
+    <mesh name="r_shoulder_motor_respondable.STL" file="meshes/r_shoulder_motor_respondable.STL" />
+    <mesh name="r_shoulder_motor_visual.STL" file="meshes/r_shoulder_motor_visual.STL" />
+    <mesh name="r_upper_arm_respondable.STL" file="meshes/r_upper_arm_respondable.STL" />
+    <mesh name="r_upper_arm_visual.STL" file="meshes/r_upper_arm_visual.STL" />
+    <mesh name="r_forearm_respondable.STL" file="meshes/r_forearm_respondable.STL" />
+    <mesh name="r_forearm_visual.STL" file="meshes/r_forearm_visual.STL" />
+  </asset>
+
+  <worldbody>
+    <body name="pelvis" pos="0.00000000 0.00000000 0.38600000" quat="1 0 0 0" childclass="robot">
+      <freejoint name="floating_base" />
+      <geom name="pelvis_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="pelvis_respondable.STL" class="collision" />
+      <geom name="pelvis_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="pelvis_visual.STL" class="visual" />
+      <body name="r_hip" pos="-0.0225417390633467 0 0" quat="0.7071067811865462 0.7071067811865488 0.0 0.0">
+        <joint name="r_hip_x" type="hinge" ref="0.0" class="motor" range="-0.497418836818 0.523598775598" axis="0 0 -1" />
+        <inertial pos="-0.0419310610774408 0.0190565121211527 -0.0049369159749795" quat="1.0 0.0 0.0 0.0" mass="0.0843835237958419" diaginertia="2.80785419197495e-05 2.83383567782285e-05 2.15931686710985e-05" />
+        <geom name="r_hip_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="r_hip_respondable.STL" class="collision" />
+        <geom name="r_hip_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="r_hip_visual.STL" class="visual" />
+        <body name="r_hip_motor" pos="-0.0439986111539757 0 0.005" quat="1.0 0.0 0.0 0.0">
+          <joint name="r_hip_z" type="hinge" ref="0.0" class="motor" range="-1.57079632679 0.436332312999" axis="0 -1 0" />
+          <inertial pos="0.00012677211714017 -0.0228896110294103 -0.0134988950219984" quat="1.0 0.0 0.0 0.0" mass="0.0831707898707576" diaginertia="2.94087635631147e-05 3.59801748266375e-05 2.29200602273928e-05" />
+          <geom name="r_hip_motor_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="r_hip_motor_respondable.STL" class="collision" />
+          <geom name="r_hip_motor_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="r_hip_motor_visual.STL" class="visual" />
+          <body name="r_thigh" pos="0 -0.024 0" quat="1.0 0.0 0.0 0.0">
+            <joint name="r_hip_y" type="hinge" ref="0.0" class="motor" range="-1.4835298642 1.83259571459" axis="-1 0 0" />
+            <inertial pos="0.0192501209789311 -0.140974172218775 0.000432765258959229" quat="1.0 0.0 0.0 0.0" mass="0.116386255838466" diaginertia="0.000357762131890894 5.14619739065129e-05 0.000370171570432626" />
+            <geom name="r_thigh_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="r_thigh_respondable.STL" class="collision" />
+            <geom name="r_thigh_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="r_thigh_visual.STL" class="visual" />
+            <body name="r_shin" pos="0 -0.182 0" quat="0.7071067811865462 0.0 0.7071067811865488 0.0">
+              <joint name="r_knee_y" type="hinge" ref="0.0" class="motor" range="-2.33874119767 0.0610865238198" axis="0 0 -1" />
+              <inertial pos="-0.00150809388022299 -0.137041584549603 0.0228988594303728" quat="1.0 0.0 0.0 0.0" mass="0.115582219792398" diaginertia="0.000397225397723862 3.98086710206889e-05 0.000393657905933943" />
+              <geom name="r_shin_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="r_shin_respondable.STL" class="collision" />
+              <geom name="r_shin_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="r_shin_visual.STL" class="visual" />
+              <body name="r_foot" pos="0 -0.18 0" quat="0.7071054825112363 0.0 -0.7071080798594735 0.0">
+                <joint name="r_ankle_y" type="hinge" ref="0.0" class="motor" range="-0.785398163397 0.785398163397" axis="-1 0 0" />
+                <inertial pos="0.0204293303781304 -0.0233359048261193 0.0268526073213802" quat="1.0 0.0 0.0 0.0" mass="0.0467879950319091" diaginertia="8.14403907813341e-05 8.8648252995759e-05 1.79463752431845e-05" />
+                <geom name="r_foot_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="r_foot_respondable.STL" class="collision" />
+                <geom name="r_foot_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="r_foot_visual.STL" class="visual" />
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="l_hip" pos="0.0225417390633466 0 0" quat="0.7071067811865462 0.7071067811865488 0.0 0.0">
+        <joint name="l_hip_x" type="hinge" ref="0.0" class="motor" range="-0.523598775598 0.497418836818" axis="0 0 -1" />
+        <inertial pos="0.0419306472605077 0.0190563885809745 -0.00493699078761145" quat="1.0 0.0 0.0 0.0" mass="0.084384314388701" diaginertia="2.80793467645287e-05 2.83405782814578e-05 2.15947433435168e-05" />
+        <geom name="l_hip_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="l_hip_respondable.STL" class="collision" />
+        <geom name="l_hip_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="l_hip_visual.STL" class="visual" />
+        <body name="l_hip_motor" pos="0.0439986111539757 0 0.005" quat="1.0 0.0 0.0 0.0">
+          <joint name="l_hip_z" type="hinge" ref="0.0" class="motor" range="-0.436332312999 1.57079632679" axis="0 -1 0" />
+          <inertial pos="-0.000127079593402107 -0.0228896103855824 -0.0134988950219984" quat="1.0 0.0 0.0 0.0" mass="0.0831707898707576" diaginertia="2.94087634441972e-05 3.59801683348766e-05 2.29200536167144e-05" />
+          <geom name="l_hip_motor_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="l_hip_motor_respondable.STL" class="collision" />
+          <geom name="l_hip_motor_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="l_hip_motor_visual.STL" class="visual" />
+          <body name="l_thigh" pos="0 -0.024 0" quat="1.0 0.0 0.0 0.0">
+            <joint name="l_hip_y" type="hinge" ref="0.0" class="motor" range="-1.81514242207 1.46607657168" axis="1 0 0" />
+            <inertial pos="-0.019252460356064 -0.142230931721003 0.000612323159069193" quat="1.0 0.0 0.0 0.0" mass="0.114854459344049" diaginertia="0.000344974307251891 5.11655383215627e-05 0.000357718491831138" />
+            <geom name="l_thigh_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="l_thigh_respondable.STL" class="collision" />
+            <geom name="l_thigh_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="l_thigh_visual.STL" class="visual" />
+            <body name="l_shin" pos="0 -0.182 0" quat="0.7071067811865462 0.0 0.7071067811865488 0.0">
+              <!-- <joint name="l_knee_y" type="hinge" ref="0.0" class="motor" range="-2.33874119767 0.0610865238198" axis="0 0 -1" /> -->
+              <joint name="l_knee_y" type="hinge" ref="0.0" class="motor" range="-0.0610865238198 2.33874119767" axis="0 0 1" />
+              <inertial pos="-0.00150809145543363 -0.137041584769234 -0.0229033576380381" quat="1.0 0.0 0.0 0.0" mass="0.11558221959692" diaginertia="0.000397225344473892 3.98086215785412e-05 0.000393657903677591" />
+              <geom name="l_shin_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="l_shin_respondable.STL" class="collision" />
+              <geom name="l_shin_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="l_shin_visual.STL" class="visual" />
+              <body name="l_foot" pos="0 -0.18 0" quat="0.7071054825112363 0.0 -0.7071080798594735 0.0">
+                <joint name="l_ankle_y" type="hinge" ref="0.0" class="motor" range="-0.785398163397 0.785398163397" axis="1 0 0" />
+                <inertial pos="-0.020427799658059 -0.023322293418243 0.0268332758297585" quat="1.0 0.0 0.0 0.0" mass="0.0468257348098641" diaginertia="8.1463512692765e-05 8.8658680494918e-05 1.7963767676241e-05" />
+                <geom name="l_foot_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="l_foot_respondable.STL" class="collision" />
+                <geom name="l_foot_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="l_foot_visual.STL" class="visual" />
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="abs_motors" pos="0 -0.017 0.061" quat="0.7071067811865462 0.7071067811865488 0.0 0.0">
+        <joint name="abs_y" type="hinge" ref="0.0" class="motor" range="-0.872664625997 0.209439510239" axis="-1 0 0" />
+        <inertial pos="-6.29779489192246E-05 0.0133591399673186 -0.0195687625589375" quat="1.0 0.0 0.0 0.0" mass="0.16766708386429" diaginertia="0.000151720676825684 0.000131382009077746 6.52732386194484e-05" />
+        <geom name="abs_motors_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="abs_motors_respondable.STL" class="collision" />
+        <geom name="abs_motors_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="abs_motors_visual.STL" class="visual" />
+        <body name="abdomen" pos="0 0 0" quat="1.0 0.0 0.0 0.0">
+          <joint name="abs_x" type="hinge" ref="0.0" class="motor" range="-0.785398163397 0.785398163397" axis="0 0 1" />
+          <inertial pos="4.70358640929572E-07 0.0445314260459549 -0.022296044885406" quat="1.0 0.0 0.0 0.0" mass="0.0384110457457536" diaginertia="5.9365236572053e-05 5.98640694082658e-05 2.35987614893539e-05" />
+          <geom name="abdomen_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="abdomen_respondable.STL" class="collision" />
+          <geom name="abdomen_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="abdomen_visual.STL" class="visual" />
+          <body name="spine" pos="0 0.0516374742048976 0" quat="1.0 0.0 0.0 0.0">
+            <joint name="abs_z" type="hinge" ref="0.0" class="motor" range="-1.57079632679 1.57079632679" axis="0 1 0" />
+            <inertial pos="-2.40411891850495E-07 0.0288451667347867 -0.0100975118547382" quat="1.0 0.0 0.0 0.0" mass="0.0926815106655512" diaginertia="3.84763910015325e-05 2.7320514654861e-05 3.26595211965373e-05" />
+            <geom name="spine_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="spine_respondable.STL" class="collision" />
+            <geom name="spine_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="spine_visual.STL" class="visual" />
+            <body name="bust_motors" pos="0 0.07985 0.00279999999999998" quat="1.0 0.0 0.0 0.0">
+              <joint name="bust_y" type="hinge" ref="0.0" class="motor" range="-1.16937059884 0.471238898038" axis="-1 0 0" />
+              <inertial pos="3.50872416629779E-05 0.0105220286877652 -0.0174331453843439" quat="1.0 0.0 0.0 0.0" mass="0.158876054570625" diaginertia="0.000100953683249293 8.94288410563621e-05 4.26225972692235e-05" />
+              <geom name="bust_motors_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="bust_motors_respondable.STL" class="collision" />
+              <geom name="bust_motors_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="bust_motors_visual.STL" class="visual" />
+              <body name="chest" pos="0 0 0" quat="1.0 0.0 0.0 0.0">
+                <joint name="bust_x" type="hinge" ref="0.0" class="motor" range="-0.698131700798 0.698131700798" axis="0 0 1" />
+                <inertial pos="2.35256459143538E-06 0.0514948183080913 -0.0105463056982622" quat="1.0 0.0 0.0 0.0" mass="0.262925523172723" diaginertia="0.000154597294293882 0.000750952782458072 0.000688549998744818" />
+                <geom name="chest_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="chest_respondable.STL" class="collision" />
+                <geom name="chest_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="chest_visual.STL" class="visual" />
+                <body name="neck" pos="0 0.084 0.00499999999999996" quat="1.0 0.0 0.0 0.0">
+                  <joint name="head_z" type="hinge" ref="0.0" class="motor" range="-1.57079632679 1.57079632679" axis="0 1 0" />
+                  <inertial pos="-0.00147486363077957 0.00928455262636602 2.89600749219313E-06" quat="1.0 0.0 0.0 0.0" mass="0.00588496516988365" diaginertia="7.25596636570396e-07 2.33535976458607e-06 2.57395421284165e-06" />
+                  <geom name="neck_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="neck_respondable.STL" class="collision" />
+                  <geom name="neck_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="neck_visual.STL" class="visual" />
+                  <body name="head" pos="0 0.0199999999999999 0" quat="0.984807753012208 -0.1736481776669304 0.0 0.0">
+                    <joint name="head_y" type="hinge" ref="0.0" class="motor" range="-0.785398163397 0.10471975512" axis="-1 0 0" />
+                    <inertial pos="0.000557544173188459 0.0327437693305889 -0.0132545775103434" quat="1.0 0.0 0.0 0.0" mass="0.188564323997503" diaginertia="0.000353329921483274 0.000384587155295662 0.000396626339401006" />
+                    <geom name="head_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="head_respondable.STL" class="collision" />
+                    <geom name="head_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="head_visual.STL" class="visual" />
+                  </body>
+                </body>
+                <body name="l_shoulder" pos="0.0771000000000001 0.0499999999999999 0.00399999999999997" quat="0.7071067811865462 -0.7071067811865488 0.0 0.0">
+                  <joint name="l_shoulder_y" type="hinge" ref="0.0" class="motor" range="-2.09439510239 2.70526034059" axis="1 0 0" />
+                  <inertial pos="0.0105246491971973 0.00179805316216127 -0.00915201992957032" quat="1.0 0.0 0.0 0.0" mass="0.00843598968780806" diaginertia="3.39606863056539e-06 3.56726082486902e-06 1.84634806401887e-06" />
+                  <geom name="l_shoulder_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="l_shoulder_respondable.STL" class="collision" />
+                  <geom name="l_shoulder_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="l_shoulder_visual.STL" class="visual" />
+                  <body name="l_shoulder_motor" pos="0.0284 0 0" quat="1.1423625238904151e-15 0.7071067811865462 0.7071067811865488 1.1423625238904192e-15">
+                    <joint name="l_shoulder_x" type="hinge" ref="0.0" class="motor" range="-1.83259571459 1.91986217719" axis="0 0 -1" />
+                    <inertial pos="2.25562237481797E-07 0.0125756739553211 0.00859826040204853" quat="1.0 0.0 0.0 0.0" mass="0.0828144098443214" diaginertia="2.76486208811411e-05 1.64427853426986e-05 2.26416351010788e-05" />
+                    <geom name="l_shoulder_motor_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="l_shoulder_motor_respondable.STL" class="collision" />
+                    <geom name="l_shoulder_motor_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="l_shoulder_motor_visual.STL" class="visual" />
+                    <body name="l_upper_arm" pos="0 0.03625 0.0185000000000001" quat="1.0 0.0 0.0 0.0">
+                      <joint name="l_arm_z" type="hinge" ref="0.0" class="motor" range="-1.83259571459 1.83259571459" axis="0 1 0" />
+                      <inertial pos="3.30518731642866E-05 0.0628256242231928 -0.0106376043749558" quat="1.0 0.0 0.0 0.0" mass="0.168140859572398" diaginertia="0.000280827719319256 4.23293519917111e-05 0.000275916197869213" />
+                      <geom name="l_upper_arm_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="l_upper_arm_respondable.STL" class="collision" />
+                      <geom name="l_upper_arm_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="l_upper_arm_visual.STL" class="visual" />
+                      <body name="l_forearm" pos="0 0.11175 -0.00999999999999998" quat="1.0 0.0 0.0 0.0">
+                        <joint name="l_elbow_y" type="hinge" ref="0.0" class="motor" range="-2.58308729295 0.0174532925199" axis="1 0 0" />
+                        <inertial pos="0.00691480023011085 0.10715758721324 0.00499021473883754" quat="1.0 0.0 0.0 0.0" mass="0.0486512481725727" diaginertia="0.000185803541823861 1.51053240271383e-05 0.000182745910584552" />
+                        <geom name="l_forearm_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="l_forearm_respondable.STL" class="collision" />
+                        <geom name="l_forearm_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="l_forearm_visual.STL" class="visual" />
+                      </body>
+                    </body>
+                  </body>
+                </body>
+                <body name="r_shoulder" pos="-0.0770999999999999 0.0500000000000002 0.00400000000000003" quat="0.7071067811865462 -0.7071067811865488 0.0 0.0">
+                  <joint name="r_shoulder_y" type="hinge" ref="0.0" class="motor" range="-2.70526034059 2.09439510239" axis="-1 0 0" />
+                  <inertial pos="-0.0104970276721559 0.00172611065393897 -0.00916610067254806" quat="1.0 0.0 0.0 0.0" mass="0.00848189714003649" diaginertia="3.40574097306283e-06 3.57001060355875e-06 1.85571692853151e-06" />
+                  <geom name="r_shoulder_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="r_shoulder_respondable.STL" class="collision" />
+                  <geom name="r_shoulder_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="r_shoulder_visual.STL" class="visual" />
+                  <body name="r_shoulder_motor" pos="-0.0284 0 0" quat="1.1423625238904151e-15 0.7071067811865462 -0.7071067811865488 -1.1423625238904192e-15">
+                    <joint name="r_shoulder_x" type="hinge" ref="0.0" class="motor" range="-1.91986217719 1.83259571459" axis="0 0 -1" />
+                    <inertial pos="2.25562237481797E-07 0.0125756739553211 0.00859826040204864" quat="1.0 0.0 0.0 0.0" mass="0.0828144098443213" diaginertia="2.76486208811411e-05 1.64427853426986e-05 2.26416351010787e-05" />
+                    <geom name="r_shoulder_motor_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="r_shoulder_motor_respondable.STL" class="collision" />
+                    <geom name="r_shoulder_motor_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="r_shoulder_motor_visual.STL" class="visual" />
+                    <body name="r_upper_arm" pos="0 0.03625 0.0185000000000002" quat="1.0 0.0 0.0 0.0">
+                      <joint name="r_arm_z" type="hinge" ref="0.0" class="motor" range="-1.83259571459 1.83259571459" axis="0 1 0" />
+                      <inertial pos="-3.32548713521223E-05 0.0628256242258387 -0.0106376027333001" quat="1.0 0.0 0.0 0.0" mass="0.16814085957724" diaginertia="0.000280827719414285 4.23293497956197e-05 0.00027591619563535" />
+                      <geom name="r_upper_arm_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="r_upper_arm_respondable.STL" class="collision" />
+                      <geom name="r_upper_arm_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="r_upper_arm_visual.STL" class="visual" />
+                      <body name="r_forearm" pos="0 0.11175 -0.01" quat="1.0 0.0 0.0 0.0">
+                        <joint name="r_elbow_y" type="hinge" ref="0.0" class="motor" range="-0.0174532925199 2.58308729295" axis="-1 0 0" />
+                        <inertial pos="-0.00691618587524222 0.107157908858058 0.00498983982891094" quat="1.0 0.0 0.0 0.0" mass="0.0486511084909604" diaginertia="0.000185805096233415 1.51060270748784e-05 0.000182748555542486" />
+                        <geom name="r_forearm_collision" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="r_forearm_respondable.STL" class="collision" />
+                        <geom name="r_forearm_visual" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="default" type="mesh" mesh="r_forearm_visual.STL" class="visual" />
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <site name="pelvis_site" pos="0 0 0" quat="1 0 0 0" />
+      <camera name="front_camera" mode="track" fovy="90.0" quat="4.329780281177467e-17 4.329780281177466e-17 0.7071067811865475 0.7071067811865476" pos="0.0 2.0 0.5" />
+      <camera name="side_camera" mode="track" fovy="90.0" quat="-0.5 -0.4999999999999999 0.5 0.5000000000000001" pos="-2.0 0.0 0.5" />
+    </body>
+  </worldbody>
+
+  <actuator>
+    <motor name="r_hip_x_ctrl" joint="r_hip_x" class="motor" ctrlrange="-200 200" />
+    <motor name="r_hip_z_ctrl" joint="r_hip_z" class="motor" ctrlrange="-200 200"  />
+    <motor name="r_hip_y_ctrl" joint="r_hip_y" class="motor"  ctrlrange="-200 200" />
+    <motor name="r_knee_y_ctrl" joint="r_knee_y" class="motor"  ctrlrange="-200 200" />
+    <motor name="r_ankle_y_ctrl" joint="r_ankle_y" class="motor"  ctrlrange="-200 200" />
+    <motor name="l_hip_x_ctrl" joint="l_hip_x" class="motor"  ctrlrange="-200 200" />
+    <motor name="l_hip_z_ctrl" joint="l_hip_z" class="motor"  ctrlrange="-200 200" />
+    <motor name="l_hip_y_ctrl" joint="l_hip_y" class="motor"  ctrlrange="-200 200" />
+    <motor name="l_knee_y_ctrl" joint="l_knee_y" class="motor"  ctrlrange="-200 200" />
+    <motor name="l_ankle_y_ctrl" joint="l_ankle_y" class="motor"  ctrlrange="-200 200" />
+    <motor name="abs_y_ctrl" joint="abs_y" class="motor"  ctrlrange="-200 200" />
+    <motor name="abs_x_ctrl" joint="abs_x" class="motor"  ctrlrange="-200 200" />
+    <motor name="abs_z_ctrl" joint="abs_z" class="motor"  ctrlrange="-200 200" />
+    <motor name="bust_y_ctrl" joint="bust_y" class="motor"  ctrlrange="-200 200" />
+    <motor name="bust_x_ctrl" joint="bust_x" class="motor"  ctrlrange="-200 200" />
+    <motor name="head_z_ctrl" joint="head_z" class="motor"  ctrlrange="-200 200" />
+    <motor name="head_y_ctrl" joint="head_y" class="motor"  ctrlrange="-200 200" />
+    <motor name="l_shoulder_y_ctrl" joint="l_shoulder_y" class="motor"  ctrlrange="-200 200" />
+    <motor name="l_shoulder_x_ctrl" joint="l_shoulder_x" class="motor"  ctrlrange="-200 200" />
+    <motor name="l_arm_z_ctrl" joint="l_arm_z" class="motor"  ctrlrange="-200 200" />
+    <motor name="l_elbow_y_ctrl" joint="l_elbow_y" class="motor"  ctrlrange="-200 200" />
+    <motor name="r_shoulder_y_ctrl" joint="r_shoulder_y" class="motor"  ctrlrange="-200 200" />
+    <motor name="r_shoulder_x_ctrl" joint="r_shoulder_x" class="motor"  ctrlrange="-200 200" />
+    <motor name="r_arm_z_ctrl" joint="r_arm_z" class="motor"  ctrlrange="-200 200" />
+    <motor name="r_elbow_y_ctrl" joint="r_elbow_y" class="motor"  ctrlrange="-200 200" />
+  </actuator>
+
+  <contact>
+    <exclude body1="pelvis" body2="r_hip" />
+    <exclude body1="r_hip" body2="r_hip_motor" />
+    <exclude body1="r_hip_motor" body2="r_thigh" />
+    <exclude body1="r_thigh" body2="r_shin" />
+    <exclude body1="r_shin" body2="r_foot" />
+    <exclude body1="pelvis" body2="l_hip" />
+    <exclude body1="l_hip" body2="l_hip_motor" />
+    <exclude body1="l_hip_motor" body2="l_thigh" />
+    <exclude body1="l_thigh" body2="l_shin" />
+    <exclude body1="l_shin" body2="l_foot" />
+    <exclude body1="pelvis" body2="abs_motors" />
+    <exclude body1="abs_motors" body2="abdomen" />
+    <exclude body1="abdomen" body2="spine" />
+    <exclude body1="spine" body2="bust_motors" />
+    <exclude body1="bust_motors" body2="chest" />
+    <exclude body1="chest" body2="neck" />
+    <exclude body1="neck" body2="head" />
+    <exclude body1="chest" body2="l_shoulder" />
+    <exclude body1="l_shoulder" body2="l_shoulder_motor" />
+    <exclude body1="l_shoulder_motor" body2="l_upper_arm" />
+    <exclude body1="l_upper_arm" body2="l_forearm" />
+    <exclude body1="chest" body2="r_shoulder" />
+    <exclude body1="r_shoulder" body2="r_shoulder_motor" />
+    <exclude body1="r_shoulder_motor" body2="r_upper_arm" />
+    <exclude body1="r_upper_arm" body2="r_forearm" />
+  </contact>
+
+  <sensor>
+    <framepos name="pelvis_site_pos" objtype="site" objname="pelvis_site" />
+    <framequat name="pelvis_site_quat" objtype="site" objname="pelvis_site" />
+    <framelinvel name="pelvis_site_linvel" objtype="site" objname="pelvis_site" />
+    <frameangvel name="pelvis_site_angvel" objtype="site" objname="pelvis_site" />
+    <velocimeter name="pelvis_site_vel" site="pelvis_site" />
+  </sensor>
+</mujoco>
