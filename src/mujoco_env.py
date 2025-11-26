@@ -3,7 +3,7 @@ from gymnasium.envs.mujoco.humanoid_v5 import HumanoidEnv
 
 class PoppyEnv(HumanoidEnv):
     def __init__(self, model_path: str, **kwargs):
-        super().__init__(model_path, **kwargs)
+        super().__init__(model_path, healthy_z_range=(0.3, 0.6), reset_noise_scale=0, **kwargs)
 
     def _get_rew(self, x_velocity: float, action):
         forward_reward = self._forward_reward_weight * x_velocity
