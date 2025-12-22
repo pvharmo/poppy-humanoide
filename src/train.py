@@ -5,8 +5,10 @@ from stable_baselines3 import PPO
 from stable_baselines3.common.callbacks import (
     CallbackList,
     CheckpointCallback,
-    EvalCallback
+    EvalCallback,
+    LogEveryNTimesteps
 )
+from Custom_Callbacks import LogInfoEveryNTimesteps
 from stable_baselines3.common.env_util import make_vec_env
 from stable_baselines3.common.vec_env import VecNormalize
 import torch.nn as nn
@@ -62,8 +64,9 @@ eval_callback = EvalCallback(
     deterministic=True,
     render=True,
 )
-callbacks = CallbackList([
-    checkpoint_callback,
+log_callback=LogEveryNTimesteps(n_steps=1)
+callbacks = CallbackList([LogInfoEveryNTimesteps(n_steps=1),
+    checkpoint_callback, log_callback,
     ProgressBarCallback(total_timesteps=TRAIN_STEPS)
 ])
 
